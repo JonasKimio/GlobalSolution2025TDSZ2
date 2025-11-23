@@ -5,3 +5,5 @@ const api = axios.create({
 });
 
 export default api;
+
+/*npx json-server db.json --host 0.0.0.0 --port 8080*/
