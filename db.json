@@ -1,0 +1,40 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "title": "React Native Avançado",
+      "description": "Aprenda a criar animações fluidas, gerenciar estados complexos e publicar nas lojas.",
+      "duration": "40 Horas",
+      "rating": 4.8
+    },
+    {
+      "id": "2",
+      "title": "UX Design para Devs",
+      "description": "Entenda como projetar interfaces intuitivas e melhorar a experiência do usuário.",
+      "duration": "25 Horas",
+      "rating": 4.5
+    },
+    {
+      "id": "3",
+      "title": "Cloud Computing AWS",
+      "description": "Fundamentos de nuvem para desenvolvedores mobile. Aprenda Serverless.",
+      "duration": "60 Horas",
+      "rating": 5.0
+    },
+    {
+      "id": "4",
+      "title": "Inglês Técnico",
+      "description": "Vocabulário essencial para trabalhar em empresas internacionais.",
+      "duration": "30 Horas",
+      "rating": 4.2
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Aluno FIAP",
+      "profession": "Desenvolvedor Junior"
+    }
+  ],
+  "my-courses": []
+}

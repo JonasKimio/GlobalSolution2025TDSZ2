@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, Alert } from 'react-native';
 import { useState, useEffect } from 'react';
 import { router } from 'expo-router';
-import api from '../../src/service/api';
+import api from '../../src/services/api';
 import { colors } from '../../src/constants/colors';
 import Button from '../../src/components/Button';
-import { Course } from '../../src/types/Courses';
+import { Course } from '../../src/types/Course';
 
 export default function Home() {
   const [courses, setCourses] = useState<Course[]>([]);
@@ -45,7 +45,7 @@ export default function Home() {
           <Button 
             title="Perfil" 
             variant="outline" 
-            onPress={() => router.push('/tabs/profile')} 
+            onPress={() => router.push('/(tabs)/profile')} 
             style={{ borderColor: colors.white }} 
             textStyle={{ color: colors.white }} 
           />
@@ -56,7 +56,7 @@ export default function Home() {
         <Button 
           title="Ver Meu Plano" 
           variant="secondary" 
-          onPress={() => router.push('/tabs/courses')} 
+          onPress={() => router.push('/(tabs)/courses')} 
         />
       </View>
 

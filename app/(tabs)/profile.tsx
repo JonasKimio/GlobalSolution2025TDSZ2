@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TextInput, Alert } from 'react-native';
 import { useState } from 'react';
-import api from '../../src/service/api';
+import api from '../../src/services/api';
 import { colors } from '../../src/constants/colors';
 import Button from '../../src/components/Button';
 import { router } from 'expo-router'; 

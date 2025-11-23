@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, ActivityIndicator, Alert } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useState, useEffect } from 'react';
-import api from '../../src/service/api';
+import api from '../../src/services/api';
 import { colors } from '../../src/constants/colors';
 import Button from '../../src/components/Button';
-import { Course } from '../../src/types/Courses';
+import { Course } from '../../src/types/Course';
 
 export default function CourseDetails() {
   const { id } = useLocalSearchParams();
@@ -38,13 +38,12 @@ export default function CourseDetails() {
         courseId: course.id
       });
       Alert.alert("Sucesso", "Curso salvo no seu plano de carreira!");
-      router.push('/tabs/courses'); 
+  
+      router.push('/(tabs)/courses'); 
+      
     } catch (error: any) {
-        if (error.response?.status === 404) {
-             Alert.alert("Erro", "Erro de conexão com o servidor.");
-        } else {
-             Alert.alert("Erro", "Não foi possível salvar o curso.");
-        }
+        console.log(error);
+        Alert.alert("Aviso", "Não foi possível salvar (talvez já esteja salvo?).");
     }
   };
 
@@ -60,17 +59,28 @@ export default function CourseDetails() {
     <View style={styles.container}>
       {course && (
         <View style={styles.content}>
-          <Text style={styles.label}>CURSO ID: {course.id}</Text>
+          <View style={styles.headerRow}>
+             <Text style={styles.label}>CURSO ID: {course.id}</Text>
+             <Text style={{fontSize: 24}}>🎓</Text>
+          </View>
+
           <Text style={styles.title}>{course.title}</Text>
-          <Text style={styles.description}>{course.description}</Text>
           
           <View style={styles.infoBox}>
             <Text style={styles.info}>⏱ {course.duration}</Text>
             <Text style={styles.info}>⭐ {course.rating}/5</Text>
           </View>
 
-          <Button title="Salvar no Meu Plano" variant="secondary" onPress={handleSave} />
-          <Button title="Voltar" variant="outline" onPress={() => router.back()} />
+          <View style={styles.divider} />
+
+          <Text style={styles.sectionTitle}>Sobre o curso:</Text>
+          <Text style={styles.description}>{course.description}</Text>
+          
+          <View style={{ marginTop: 'auto', gap: 10 }}>
+            <Button title="Salvar no Meu Plano" variant="secondary" onPress={handleSave} />
+            <Button title="Voltar" variant="outline" onPress={() => router.back()} />
+          </View>
+
         </View>
       )}
     </View>
@@ -78,11 +88,66 @@ export default function CourseDetails() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background, padding: 20, justifyContent: 'center' },
-  content: { backgroundColor: colors.white, padding: 20, borderRadius: 20, elevation: 5 },
-  label: { color: colors.primary, fontWeight: 'bold', marginBottom: 10 },
-  title: { fontSize: 26, fontWeight: 'bold', color: colors.text, marginBottom: 10 },
-  description: { fontSize: 16, color: colors.gray, lineHeight: 24, marginBottom: 20 },
-  infoBox: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 30 },
-  info: { fontWeight: 'bold', color: colors.text }
+  container: { 
+    flex: 1, 
+    backgroundColor: colors.background, 
+    padding: 20, 
+    justifyContent: 'center' 
+  },
+  content: { 
+    backgroundColor: colors.white, 
+    padding: 24, 
+    borderRadius: 20, 
+    elevation: 5,
+    minHeight: 400, 
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10
+  },
+  label: { 
+    color: colors.primary, 
+    fontWeight: 'bold', 
+    textTransform: 'uppercase',
+    letterSpacing: 1
+  },
+  title: { 
+    fontSize: 28, 
+    fontWeight: 'bold', 
+    color: colors.text, 
+    marginBottom: 15 
+  },
+  infoBox: { 
+    flexDirection: 'row', 
+    gap: 20,
+    marginBottom: 20 
+  },
+  info: { 
+    fontWeight: '600', 
+    color: '#555',
+    fontSize: 16
+  },
+  divider: {
+    height: 1,
+    backgroundColor: '#eee',
+    marginBottom: 20
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#333'
+  },
+  description: { 
+    fontSize: 16, 
+    color: colors.gray, 
+    lineHeight: 24, 
+    marginBottom: 30 
+  }
 });

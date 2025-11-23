@@ -6,7 +6,7 @@ interface ButtonProps {
   onPress: () => void;
   variant?: 'primary' | 'secondary' | 'outline';
   style?: ViewStyle;      
-  textStyle?: TextStyle; 
+  textStyle?: TextStyle;  
 }
 
 export default function Button({ 

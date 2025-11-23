@@ -7,7 +7,7 @@ import LogoImage from '../assets/logo.png';
 export default function Login() {
   
   const handleLogin = () => {
-    router.replace('/tabs/home');
+    router.replace('/(tabs)/home');
   };
 
   return (
