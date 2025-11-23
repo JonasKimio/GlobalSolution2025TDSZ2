@@ -1,4 +1,4 @@
-# [Seu Nome Escolhido para o Projeto Aqui, ex: CareerPath ou SkillUp]
+# CareerPath
 
 ## Objetivo da Solução (Global Solution)
 
