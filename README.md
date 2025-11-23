@@ -1,50 +1,55 @@
-# Welcome to your Expo app 👋
+# [Seu Nome Escolhido para o Projeto Aqui, ex: CareerPath ou SkillUp]
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Objetivo da Solução (Global Solution)
 
-## Get started
+Este aplicativo mobile foi desenvolvido para atender ao desafio da Global Solution, focado na **Adaptação de Carreiras**. A solução tem como objetivo principal auxiliar o usuário a mapear e planejar seu desenvolvimento profissional, fornecendo sugestões de cursos e permitindo o gerenciamento de um plano de estudos personalizado.
 
-1. Install dependencies
+## Integrantes do Grupo
 
-   ```bash
-   npm install
-   ```
+| Nome Completo | RM |
+| :--- | :--- |
+| Jonas Kimio Isiki | 560560 |
+| Daniel Kendi Saijo Araki | 553043 |
+| Marcos Vinicius Alves Marques | 560475 |
+---
 
-2. Start the app
+## Tecnologias e Arquitetura (Arquitetura 20pts)
 
-   ```bash
-   npx expo start
-   ```
+O projeto segue a arquitetura moderna de aplicações React Native, utilizando:
 
-In the output, you'll find options to open the app in a
+* **Framework:** React Native (Expo Router)
+* **Linguagem:** TypeScript
+* **Gerenciamento de Estado/Dados:** Utilização de `useState` e integração com API RESTful via **Axios** (Conforme requisito da disciplina).
+* **Estilização:** Criação de uma identidade visual customizada (`src/constants/colors.ts`) e uso de um componente de botão reutilizável (`src/components/Button.tsx`).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Funcionalidades Implementadas (CRUD 40pts)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+O aplicativo implementa o **CRUD** (Create, Read, Update, Delete) com tratamento de erro e feedback visual.
 
-## Get a fresh project
+| Ação | Rota/Tela | Detalhe |
+| :--- | :--- | :--- |
+| **CREATE** | Detalhes do Curso (`/details/[id]`) | Salvar um curso no plano de estudos do usuário. |
+| **READ** | Home (`/home`) | Listar as sugestões de cursos vindo da API. |
+| **READ** | Meus Cursos (`/courses`) | Listar os cursos que foram salvos pelo usuário. |
+| **UPDATE** | Perfil (`/profile`) | Atualizar a profissão ou foco do usuário. |
+| **DELETE** | Meus Cursos (`/courses`) | Remover um curso do plano de estudos. |
 
-When you're ready, run:
+---
+
+## Como Rodar o Projeto Localmente
+
+Para avaliar a solução siga estes passos:
+
+### 1. Pré-requisitos
+* Node.js e npm/Yarn instalados.
+* Expo CLI instalado (`npm install -g expo-cli`).
+
+### 2. Clonagem e Instalação
 
 ```bash
-npm run reset-project
-```
+# Clone o repositório do GitHub Classroom
+git clone <URL do seu repositório>
+cd <nome-da-pasta-do-projeto>
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# Instale as dependências
+npm install
