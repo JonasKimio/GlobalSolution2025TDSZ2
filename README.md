@@ -53,3 +53,7 @@ cd <nome-da-pasta-do-projeto>
 
 # Instale as dependências
 npm install
+```
+
+### 3. Video Do trabalho
+https://youtu.be/9uh5w9s8t9Y
